@@ -1,0 +1,10 @@
+export { HeroSection } from "./HeroSection";
+export { ThesisSection } from "./ThesisSection";
+export { BiologicalFactorsSection } from "./BiologicalFactorsSection";
+export { EnvironmentalFactorsSection } from "./EnvironmentalFactorsSection";
+export { LifeExperiencesSection } from "./LifeExperiencesSection";
+export { CharacterAnalysisSection } from "./CharacterAnalysisSection";
+export { PitfallsAndHeroismSection } from "./PitfallsAndHeroismSection";
+export { LegacySection } from "./LegacySection";
+export { GuestbookSection } from "./GuestbookSection";
+export { ReferencesSection } from "./ReferencesSection";
