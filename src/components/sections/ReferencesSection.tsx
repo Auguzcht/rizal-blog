@@ -1,4 +1,12 @@
+import { ExternalLink } from "lucide-react";
 import { Section } from "./Section";
+import { references } from "@/data/references";
+
+function formatAuthors(authors: string[]): string {
+  return authors.length > 2
+    ? `${authors[0]} et al.`
+    : authors.join(" & ");
+}
 
 export function ReferencesSection() {
   return (
@@ -13,44 +21,38 @@ export function ReferencesSection() {
         works listed below.
       </p>
 
-      <ol className="mt-8 space-y-4 list-decimal pl-6">
-        {[
-          {
-            id: "palma1949",
-            label: "Palma, R. (1949).",
-            title: "The Pride of the Malay Race: A Biography of José Rizal.",
-          },
-          {
-            id: "guerrero1963",
-            label: "Guerrero, L. Ma. (1963).",
-            title: "The First Filipino: A Biography of José Rizal.",
-          },
-          {
-            id: "ocampo1990",
-            label: "Ocampo, A. (1990).",
-            title: "Rizal Without the Overcoat.",
-          },
-          {
-            id: "coates1968",
-            label: "Coates, A. (1968).",
-            title: "Rizal: Philippine Nationalist and Martyr.",
-          },
-          {
-            id: "schumacher1973",
-            label: "Schumacher, J. N. (1973).",
-            title: "The Propaganda Movement, 1880–1895.",
-          },
-        ].map((ref) => (
-          <li key={ref.id} id={`ref-${ref.id}`} className="font-body text-body text-ink-900">
-            <strong className="text-ink-700">{ref.label}</strong>{" "}
-            <em>{ref.title}</em>
+      <ol className="mt-8 space-y-3 md:space-y-4 pl-4 md:pl-6 text-sm md:text-base">
+        {references.map((ref) => (
+          <li
+            key={ref.id}
+            id={`ref-${ref.id}`}
+            className="font-body text-ink-900 leading-relaxed break-all md:break-words"
+          >
+            <span className="text-ink-700 font-medium">
+              {formatAuthors(ref.authors)}
+            </span>
+            {ref.year && <span> ({ref.year}).</span>}
+            {" "}
+            <em>{ref.title}</em>.
+            {ref.publisher && <span> {ref.publisher}.</span>}
+            {ref.journal && <span> <em>{ref.journal}</em>.</span>}
+            {ref.url && (
+              <>
+                {" "}
+                <a
+                  href={ref.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline text-gold-500 hover:text-blood-600 transition-colors underline underline-offset-2 break-all"
+                >
+                  <ExternalLink size={12} />
+                  {ref.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                </a>
+              </>
+            )}
           </li>
         ))}
       </ol>
-
-      <p className="mt-12 text-caption text-sepia-600">
-        Additional references to be added as content is finalized and sourced.
-      </p>
     </Section>
   );
 }

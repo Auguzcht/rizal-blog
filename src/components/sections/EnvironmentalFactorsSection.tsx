@@ -1,31 +1,30 @@
 import { Section } from "./Section";
+import { ProseHover } from "@/components/motion/ProseHover";
+import { environmentalFactors } from "@/data/biographical-facts";
 
 export function EnvironmentalFactorsSection() {
+  const { family, education, socioPolitical } = environmentalFactors;
+
   return (
     <Section
       id="environmental"
       eyebrow="III. Environmental Factors"
       title="The World That Shaped Him"
     >
-      <p>
-        Rizal grew up in a Philippines groaning under Spanish colonial rule.
-        The <em>frailocracia</em> — the political dominance of the religious
-        orders — cast a long shadow over every aspect of life: education,
-        land ownership, civil administration, and personal liberty.
-      </p>
-      <p>
-        Two events crystallized the injustice of the system for the young Rizal.
-        The first was the execution of the three secular priests — Mariano
-        Gómez, José Burgos, and Jacinto Zamora — in 1872, an event that his
-        older brother Paciano had witnessed and that shook the family deeply.
-        The second was the imprisonment of his mother, Teodora, on trumped-up
-        charges in 1871, when Rizal was just ten years old.
-      </p>
-      <p>
-        These twin shocks planted the seed of what would become Rizal&apos;s
-        lifelong mission: to expose the rot beneath the colonial system through
-        the power of the written word.
-      </p>
+      <h3 className="font-display text-display-lg text-ink-700 mt-8 mb-4">
+        {family.heading}
+      </h3>
+      <ProseHover>{family.body}</ProseHover>
+
+      <h3 className="font-display text-display-lg text-ink-700 mt-16 mb-4">
+        {education.heading}
+      </h3>
+      <ProseHover>{education.body}</ProseHover>
+
+      <h3 className="font-display text-display-lg text-ink-700 mt-16 mb-4">
+        {socioPolitical.heading}
+      </h3>
+      <ProseHover>{socioPolitical.body}</ProseHover>
     </Section>
   );
 }

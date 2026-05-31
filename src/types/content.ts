@@ -1,46 +1,29 @@
-import type { ImageRef } from "./image";
+/**
+ * types/content.ts
+ * Types for biographical-facts.ts and quotes.ts
+ */
 
-export type BiographicalFact = {
-  id: string;
-  category: "family" | "physique" | "personality" | "genealogy";
-  title: string;
+export type CharacterTrait = {
+  trait: string;
   body: string;
   sourceIds: [string, ...string[]];
-  image?: ImageRef;
 };
 
-export type Influence = {
+export type FamilyMember = {
   id: string;
   name: string;
   relationship: string;
-  significance: string;
+  body: string;
   sourceIds: [string, ...string[]];
-  image?: ImageRef;
-};
-
-export type Work = {
-  id: string;
-  title: string;
-  year: number;
-  type: "novel" | "essay" | "poem" | "letter" | "annotation";
-  synopsis: string;
-  themes: string[];
-  sourceIds: [string, ...string[]];
-  image?: ImageRef;
-};
-
-export type CharacterTrait = {
-  id: string;
-  trait: string;
-  category: "virtue" | "shortcoming";
-  description: string;
-  sourceIds: [string, ...string[]];
+  imageId?: string;
 };
 
 export type Quote = {
   id: string;
-  original: string;
-  translation?: string;
-  context: string;
-  sourceIds: [string, ...string[]];
+  original: string;         // In the original language (usually Spanish)
+  translation: string;      // English translation
+  source: string;           // Human-readable source description, e.g. "Noli Me Tángere, Ch. 1 (1887)"
+  sourceId: string;         // → references.ts
+  context?: string;         // Editorial context explaining the quote's significance
+  language: "es" | "tl" | "de" | "fr" | "en";
 };

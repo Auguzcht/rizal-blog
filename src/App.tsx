@@ -20,6 +20,8 @@ import { LegacySection } from "@/components/sections/LegacySection";
 import { GuestbookSection } from "@/components/sections/GuestbookSection";
 import { ReferencesSection } from "@/components/sections/ReferencesSection";
 import { OrnamentalDivider } from "@/components/ui/OrnamentalDivider";
+import { BackToTop } from "@/components/layout/BackToTop";
+import { IosCursor } from "@/components/ui/IOSCursor";
 
 function App() {
   const loaded = useUIStore((s) => s.loaded);
@@ -29,6 +31,7 @@ function App() {
 
   return (
     <LenisProvider>
+      <IosCursor />
       <AnimatePresence>
         {!loaded && <LoadingScreen key="loading" />}
       </AnimatePresence>
@@ -38,8 +41,6 @@ function App() {
 
       <main>
         <HeroSection />
-
-        <OrnamentalDivider />
 
         <ThesisSection />
 
@@ -76,6 +77,7 @@ function App() {
         <ReferencesSection />
       </main>
 
+      <BackToTop />
       <Footer />
     </LenisProvider>
   );

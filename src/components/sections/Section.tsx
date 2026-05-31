@@ -8,6 +8,7 @@ type SectionProps = {
   title: string;
   children: React.ReactNode;
   className?: string;
+  full?: boolean;
 };
 
 export function Section({
@@ -16,13 +17,14 @@ export function Section({
   title,
   children,
   className,
+  full,
 }: SectionProps) {
   return (
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
       className={cn(
-        "relative mx-auto w-full max-w-screen-xl px-6 py-32 md:py-40",
+        "relative mx-auto w-full max-w-screen-xl px-4 md:px-6 py-20 md:py-40",
         className,
       )}
     >
@@ -39,9 +41,11 @@ export function Section({
       >
         <TextReveal>{title}</TextReveal>
       </h2>
-      <div className="prose-rizal max-w-[65ch]">
-        {children}
-      </div>
+      {full ? (
+        children
+      ) : (
+        <div className="prose-rizal max-w-[65ch]">{children}</div>
+      )}
     </section>
   );
 }

@@ -4,4 +4,7 @@ export { TextReveal } from "./TextReveal";
 export { Parallax } from "./Parallax";
 export { StaggerChildren } from "./StaggerChildren";
 export { ScrollIndicator } from "./ScrollIndicator";
+export { ScrollReveal } from "./ScrollReveal";
+export { default as VariableProximity } from "./VariableProximity";
+export { RevealImage } from "./RevealImage";
 export { EASE_CINEMATIC, DURATIONS, STAGGER } from "./constants";

@@ -2,6 +2,10 @@
 
 import Lenis from "lenis";
 import { createContext, useContext, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const LenisContext = createContext<Lenis | null>(null);
 
@@ -25,24 +29,27 @@ export function LenisProvider({ children }: LenisProviderProps) {
     const lenis = new Lenis({
       lerp: 0.1,
       smoothWheel: true,
-      smoothTouch: false,
     });
     lenisRef.current = lenis;
 
-    let rafId: number;
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-    rafId = requestAnimationFrame(raf);
+    // Sync Lenis scroll position with GSAP ScrollTrigger
+    lenis.on("scroll", ScrollTrigger.update);
+
+    // Integrate GSAP ticker with Lenis RAF loop
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      gsap.ticker.lagSmoothing(1);
+      gsap.ticker.remove(() => {});
       lenis.destroy();
       lenisRef.current = null;
     };
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   return (
     <LenisContext.Provider value={lenisRef.current}>
       {children}

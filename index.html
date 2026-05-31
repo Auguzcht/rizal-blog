@@ -2,26 +2,67 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title & Description -->
+    <title>Life of Rizal</title>
+    <meta name="description" content="A scroll-driven narrative exploring the biological, environmental, and experiential factors that shaped José Rizal's character and heroism. Built for SS038, The Life and Works of Rizal." />
+    <meta name="keywords" content="José Rizal, Rizal, Philippine hero, character development, biography, SS038, Mapúa MCM, scrollytelling" />
+    <meta name="author" content="Alfred Dads D. Nodado, Hanna Keziah T. Sato" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://rizal-blog.vercel.app/" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="The Shaping of a Hero: José Rizal's Character Development — A scrollytelling narrative for SS038, The Life and Works of Rizal." />
-    <meta property="og:title" content="The Shaping of a Hero: José Rizal's Character Development" />
+    <link rel="manifest" href="/favicon_io/site.webmanifest" />
+    <meta name="theme-color" content="#FBF7EC" />
+
+    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Life of Rizal" />
     <meta property="og:description" content="A scroll-driven narrative exploring the biological, environmental, and experiential factors that shaped José Rizal's character and heroism." />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content="/Rizal-Logo.png" />
+    <meta property="og:image:alt" content="The Shaping of a Hero — José Rizal" />
+    <meta property="og:url" content="https://rizal-blog.vercel.app/" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Life of Rizal" />
+    <meta name="twitter:description" content="A scroll-driven narrative exploring the biological, environmental, and experiential factors that shaped José Rizal's character and heroism." />
+    <meta name="twitter:image" content="/Rizal-Logo.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Crimson+Pro:wght@400;500;600&family=Tangerine:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:opsz,wght@5..1200,500..900&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Crimson+Pro:opsz,wght@6..36,400..700&family=Tangerine:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
-    <title>The Shaping of a Hero — José Rizal</title>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Life of Rizal",
+      "description": "A scroll-driven narrative exploring the biological, environmental, and experiential factors that shaped José Rizal's character and heroism.",
+      "author": [
+        { "@type": "Person", "name": "Alfred Dads D. Nodado" },
+        { "@type": "Person", "name": "Hanna Keziah T. Sato" }
+      ],
+      "about": {
+        "@type": "Person",
+        "name": "José Rizal",
+        "description": "Philippine national hero"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

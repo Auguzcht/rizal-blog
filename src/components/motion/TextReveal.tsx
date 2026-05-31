@@ -35,22 +35,26 @@ export function TextReveal({
 
   return (
     <Tag className={className}>
-      {words.map((word, i) => (
-        <motion.span
-          key={`${word}-${i}`}
-          className="inline-block"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{
-            duration: DURATIONS.entry * 0.6,
-            ease: EASE_CINEMATIC,
-            delay: delay + i * STAGGER.word,
-          }}
-        >
-          {word}
-        </motion.span>
-      ))}
+      {words.map((word, i) =>
+        word.match(/^\s+$/) ? (
+          <span key={`s-${i}`}>&nbsp;</span>
+        ) : (
+          <motion.span
+            key={`w-${i}`}
+            className="inline-block"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{
+              duration: DURATIONS.entry * 0.6,
+              ease: EASE_CINEMATIC,
+              delay: delay + i * STAGGER.word,
+            }}
+          >
+            {word}
+          </motion.span>
+        ),
+      )}
     </Tag>
   );
 }

@@ -23,14 +23,49 @@
   --shadow-paper-lg: 0 16px 48px -12px rgba(30, 22, 17, 0.16);
 }
 
-/* ─── Base ─── */
+/* ─── Custom scrollbar ─── */
+@layer base {
+  /* Firefox */
+  * {
+    scrollbar-color: var(--sepia-400) var(--parchment-100);
+    scrollbar-width: thin;
+  }
+
+  /* WebKit (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--parchment-100);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--sepia-400);
+    border-radius: 4px;
+    border: 2px solid var(--parchment-100);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--sepia-600);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--parchment-100);
+  }
+}
+
 @layer base {
   html {
     color-scheme: light;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
+    overflow-x: hidden;
     background-color: var(--parchment-50);
     color: var(--ink-900);
     font-family: var(--font-body);
@@ -60,6 +95,7 @@
   #root {
     position: relative;
     z-index: 2;
+    overflow-x: hidden;
   }
 }
 

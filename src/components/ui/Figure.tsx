@@ -1,4 +1,5 @@
 import { cn } from "@/lib/cn";
+import { useMemo } from "react";
 
 type FigureProps = {
   src: string;
@@ -9,13 +10,6 @@ type FigureProps = {
   className?: string;
 };
 
-const ASPECT_RATIOS = {
-  "4/3": "aspect-[4/3]",
-  "3/2": "aspect-[3/2]",
-  "16/9": "aspect-[16/9]",
-  "1/1": "aspect-[1/1]",
-} as const;
-
 export function Figure({
   src,
   alt,
@@ -24,18 +18,27 @@ export function Figure({
   aspect = "4/3",
   className,
 }: FigureProps) {
+  // Prevent layout shift by computing intrinsic dimensions from aspect ratio
+  const dims = useMemo(() => {
+    const [w, h] = aspect.split("/").map(Number);
+    return { w: w * 100, h: h * 100 };
+  }, [aspect]);
+
   return (
-    <figure className={cn("my-12", className)}>
+    <figure className={cn("my-8 md:my-12", className)}>
       <div className="overflow-hidden rounded-sm border border-sepia-400 shadow-paper">
         <img
           src={src}
           alt={alt}
+          width={dims.w}
+          height={dims.h}
           loading="lazy"
           decoding="async"
-          className={cn("w-full object-cover", ASPECT_RATIOS[aspect])}
+          className="w-full h-auto object-cover"
+          style={{ aspectRatio: aspect }}
         />
       </div>
-      <figcaption className="mt-3 font-serif-i italic text-caption text-sepia-600">
+      <figcaption className="mt-2 md:mt-3 font-serif-i italic text-xs md:text-sm text-sepia-600">
         {caption}
         {sourceId && (
           <>

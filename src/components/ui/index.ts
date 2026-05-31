@@ -25,3 +25,4 @@ export { Figure } from "./Figure";
 export { PullQuote } from "./PullQuote";
 export { OrnamentalDivider } from "./OrnamentalDivider";
 export { DropCap } from "./DropCap";
+export { IosCursor } from "./IOSCursor";

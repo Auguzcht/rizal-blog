@@ -10,7 +10,7 @@ type SlideUpProps = {
   delay?: number;
   className?: string;
   children: React.ReactNode;
-  as?: React.ElementType;
+  as?: "div" | "span" | "section" | "article";
 };
 
 export function SlideUp({
@@ -20,10 +20,10 @@ export function SlideUp({
   as = "div",
 }: SlideUpProps) {
   const reduced = useReducedMotion();
-  const MotionTag = motion[as as keyof typeof motion] ?? motion.div;
+  const Tag = motion(as === "span" ? "span" : "div");
 
   return (
-    <MotionTag
+    <Tag
       className={className}
       variants={
         reduced
@@ -40,6 +40,6 @@ export function SlideUp({
       }}
     >
       {children}
-    </MotionTag>
+    </Tag>
   );
 }

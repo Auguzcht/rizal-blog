@@ -3,12 +3,16 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { useUIStore } from "@/store/useUIStore";
-import { TextReveal, Parallax, ScrollIndicator } from "@/components/motion";
+import { TextReveal, ScrollIndicator } from "@/components/motion";
 import { EASE_CINEMATIC } from "@/components/motion/constants";
+import { quotes } from "@/data/quotes";
 
 export function HeroSection() {
   const loaded = useUIStore((s) => s.loaded);
   const [showContent, setShowContent] = useState(false);
+
+  // Pick the Mi Último Adiós opening as the hero quote
+  const heroQuote = quotes.find((q) => q.id === "ultimo-adios-farewell");
 
   useEffect(() => {
     if (loaded) {
@@ -22,12 +26,6 @@ export function HeroSection() {
       id="hero"
       className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Background parallax layer */}
-      <Parallax range={["-5%", "5%"]} className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-parchment-100/50 to-parchment-50" />
-        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_50%_50%,_var(--color-sepia-400)_0%,_transparent_70%)]" />
-      </Parallax>
-
       {showContent && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -47,9 +45,7 @@ export function HeroSection() {
 
           {/* Main title */}
           <h1 className="font-display text-display-2xl text-ink-700 mb-6 leading-[1.05]">
-            <TextReveal>
-              The Shaping of a Hero
-            </TextReveal>
+            <TextReveal>The Shaping of a Hero</TextReveal>
           </h1>
 
           {/* Subtitle */}
@@ -63,15 +59,22 @@ export function HeroSection() {
             Nation, and History
           </motion.p>
 
-          {/* Script quote */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, ease: EASE_CINEMATIC, delay: 1.1 }}
-            className="font-script text-3xl text-gold-500 mt-12"
-          >
-            Para sa Inang Bayan
-          </motion.p>
+          {/* Script quote — Mi Último Adiós opening */}
+          {heroQuote && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, ease: EASE_CINEMATIC, delay: 1.1 }}
+              className="mt-12"
+            >
+              <span className="font-script text-2xl md:text-3xl text-gold-500 block">
+                &ldquo;{heroQuote.original}&rdquo;
+              </span>
+              <span className="font-caption text-caption text-sepia-600 mt-2 block">
+                — {heroQuote.translation}
+              </span>
+            </motion.p>
+          )}
         </motion.div>
       )}
 

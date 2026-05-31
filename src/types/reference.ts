@@ -1,3 +1,7 @@
+/**
+ * types/reference.ts
+ */
+
 export type ReferenceType =
   | "book"
   | "article"

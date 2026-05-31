@@ -1,14 +1,10 @@
 import { Section } from "./Section";
-import { OrnamentalDivider } from "@/components/ui/OrnamentalDivider";
+import { ProseHover } from "@/components/motion/ProseHover";
 
 export function ThesisSection() {
   return (
-    <Section
-      id="thesis"
-      eyebrow="I. Introduction"
-      title="Thesis Statement"
-    >
-      <p>
+    <Section id="thesis" eyebrow="I. Introduction" title="Thesis Statement">
+      <ProseHover>
         José Rizal&apos;s character — his intellectual breadth, moral courage,
         patriotism, and capacity for sacrifice — was not an innate gift but the
         product of a complex interplay between biological inheritance,
@@ -17,7 +13,7 @@ export function ThesisSection() {
         Philippines, his education in Europe, and the specific crucible of exile
         forged the national hero whose execution at Bagumbayan on December 30,
         1896, would catalyze a revolution.
-      </p>
+      </ProseHover>
     </Section>
   );
 }
