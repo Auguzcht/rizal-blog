@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.config({ limit: 100 });
+(ScrollTrigger as any).config({ limit: 100 });
 
 const LenisContext = createContext<Lenis | null>(null);
 
