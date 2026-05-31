@@ -45,8 +45,9 @@ export const images: Image[] = [
     "Teodora Alonso Realonda y Quintos (1827–1911), Rizal's mother. " +
     "She taught him to read at age three. Her wrongful imprisonment in 1871 " +
     "was Rizal's first encounter with colonial injustice.",
-  sourceId: "wikimedia-teodora-alonso",  // add to references.ts below
+  sourceId: "wikimedia-teodora-alonso",
   aspect: "3/4",
+  objectPosition: "top",
   wikilinkForDownload:
     "https://commons.wikimedia.org/wiki/File:Teodora_Alonzo_Mercado_Rizal.jpg",
   license: "Public Domain",
@@ -65,6 +66,7 @@ export const images: Image[] = [
       "ophthalmic treatment. She chose to stay. They married the night before his execution.",
     sourceId: "wikimedia-josephine-bracken",
     aspect: "3/4",
+    objectPosition: "top",
     wikilinkForDownload:
       "https://commons.wikimedia.org/wiki/File:Josephine_Bracken_BR.jpg",
     license: "Public Domain",
@@ -83,6 +85,7 @@ export const images: Image[] = [
     caption: "José Rizal, c. 1890. Unknown photographer.",
     sourceId: "wikimedia-rizal-portrait",
     aspect: "3/4",
+    objectPosition: "top",
     wikilinkForDownload: "https://commons.wikimedia.org/wiki/File:Jose_Rizal_full.jpg",
     license: "Public Domain",
     downloadStatus: "TODO",
@@ -97,6 +100,7 @@ export const images: Image[] = [
       "at the Madrid Exposition the following year — an achievement Rizal toasted in his famous 1884 speech.",
     sourceId: "wikimedia-hidalgo-portrait-1883",
     aspect: "3/4",
+    objectPosition: "top",
     wikilinkForDownload:
       "https://commons.wikimedia.org/wiki/File:Jose_Rizal_1883_oil_portrait_by_Felix_Resurreccion_Hidalgo.jpg",
     license: "Public Domain",
@@ -109,6 +113,7 @@ export const images: Image[] = [
     caption: "Rizal in London, 1888. He spent this period at the British Museum annotating Morga's Sucesos.",
     sourceId: "wikimedia-rizal-london-1888",
     aspect: "3/4",
+    objectPosition: "top",
     wikilinkForDownload:
       "https://commons.wikimedia.org/wiki/File:Rizal1888london2.JPG",
     license: "Public Domain",

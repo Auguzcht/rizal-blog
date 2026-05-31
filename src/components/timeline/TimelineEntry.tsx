@@ -90,6 +90,7 @@ export function TimelineEntry({ event, index }: TimelineEntryProps) {
           alt={event.image.alt}
           caption={event.image.caption}
           sourceId={event.image.sourceId}
+          objectPosition={event.image.objectPosition}
           className="mt-8"
         />
       )}

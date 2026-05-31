@@ -128,10 +128,13 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Bottom quote */}
+          {/* Bottom quote — Mi Último Adiós, opening line (verified) */}
           <p className="mt-10 font-script text-2xl md:text-3xl text-gold-500 px-4 text-center leading-relaxed">
-            "Ang hindi marunong lumingon sa pinanggalingan ay hindi makararating
-            sa paroroonan."
+            &ldquo;Adiós, Patria adorada, regi&oacute;n del sol querida,<br className="md:hidden" />
+            Perla del Mar de Oriente, nuestro perdido Ed&eacute;n.&rdquo;
+          </p>
+          <p className="font-serif-i italic text-sm text-sepia-600 text-center mt-2">
+            &mdash; Mi &Uacute;ltimo Adiós, stanza 1 (1896)
           </p>
 
           <p className="mt-6 font-caption text-caption text-xs md:text-sm text-sepia-400 text-center">
