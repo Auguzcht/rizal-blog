@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ limit: 100 });
 
 const LenisContext = createContext<Lenis | null>(null);
 
@@ -36,14 +37,15 @@ export function LenisProvider({ children }: LenisProviderProps) {
     lenis.on("scroll", ScrollTrigger.update);
 
     // Integrate GSAP ticker with Lenis RAF loop
-    gsap.ticker.add((time) => {
+    const tickerFn = (time: number) => {
       lenis.raf(time * 1000);
-    });
+    };
+    gsap.ticker.add(tickerFn);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
       gsap.ticker.lagSmoothing(1);
-      gsap.ticker.remove(() => {});
+      gsap.ticker.remove(tickerFn);
       lenis.destroy();
       lenisRef.current = null;
     };
